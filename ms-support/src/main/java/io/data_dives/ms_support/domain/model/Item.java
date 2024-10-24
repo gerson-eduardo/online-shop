@@ -3,11 +3,11 @@ package io.data_dives.ms_support.domain.model;
 public class Item{
 	private String sku;
 	private Long price;
-	private Integer promocao;
-	private Integer quantidade;
+	private Integer discount;
+	private Integer quantity;
 
 	public Long getTotalPrice(){
-		return ((price * (100 - promocao))/ 100) * quantidade;
+		return ((price * (100 - discount))/ 100) * quantity;
 	}
 
 	public Long getPrice() {
@@ -16,17 +16,17 @@ public class Item{
 	public void setPrice(Long price) {
 		this.price = price;
 	}
-	public Integer getPromocao() {
-		return promocao;
+	public Integer getDiscount() {
+		return discount;
 	}
-	public void setPromocao(Integer promocao) {
-		this.promocao = (promocao > 100 || promocao < 0) ? 0: promocao;
+	public void setDiscount(Integer discount) {
+		this.discount = (discount > 100 || discount < 0) ? 0: discount;
 	}
-	public Integer getQuantidade() {
-		return quantidade;
+	public Integer getQuantity() {
+		return quantity;
 	}
-	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
+	public void setQuantity(Integer quantity) {
+		this.quantity= quantity;
 	}
 	public String getSku() {
 		return sku;

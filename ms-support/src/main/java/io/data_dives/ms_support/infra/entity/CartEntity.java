@@ -8,14 +8,14 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import io.data_dives.ms_support.domain.model.Item;
-import io.data_dives.ms_support.domain.types.StatusCarrinho;
+import io.data_dives.ms_support.domain.types.CartStatus;
 
-@Document("carrinho")
-public class CarrinhoEntity{
+@Document("cart")
+public class CartEntity{
 	@Id
 	private String id;
 	private UUID userid;
-	private StatusCarrinho status;
+	private CartStatus status;
 	private Map<String, Item> items;
 	private ZonedDateTime dateUpdate;
 	private ZonedDateTime dateCreate;
@@ -32,10 +32,10 @@ public class CarrinhoEntity{
 	public void setUserid(UUID userid) {
 		this.userid = userid;
 	}
-	public StatusCarrinho getStatus() {
+	public CartStatus getStatus() {
 		return status;
 	}
-	public void setStatus(StatusCarrinho status) {
+	public void setStatus(CartStatus status) {
 		this.status = status;
 	}
 	public Map<String, Item> getItems() {
@@ -64,7 +64,7 @@ public class CarrinhoEntity{
 	public static class Builder{
 		private String id;
 		private UUID userid;
-		private StatusCarrinho status;
+		private CartStatus status;
 		private Map<String, Item> items;
 		private ZonedDateTime dateUpdate;
 		private ZonedDateTime dateCreate;
@@ -77,7 +77,7 @@ public class CarrinhoEntity{
 			this.userid = userid;
 			return this;
 		}
-		public Builder setStatus(StatusCarrinho status) {
+		public Builder setStatus(CartStatus status) {
 			this.status = status;
 			return this;
 		}
@@ -94,8 +94,8 @@ public class CarrinhoEntity{
 			return this;
 		}
 
-		public CarrinhoEntity build(){
-			CarrinhoEntity carrinho = new CarrinhoEntity();
+		public CartEntity build(){
+			CartEntity carrinho = new CartEntity();
 			carrinho.setId(this.id);
 			carrinho.setUserid(this.userid);
 			carrinho.setStatus(this.status);
