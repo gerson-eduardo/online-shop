@@ -3,36 +3,36 @@ package io.data_dives.ms_support.domain.model;
 import java.util.Map;
 import java.util.UUID;
 
-import io.data_dives.ms_support.domain.types.StatusCarrinho;
+import io.data_dives.ms_support.domain.types.CartStatus;
 
-public class Carrinho{
+public class Cart{
 	private UUID userid;
-	private StatusCarrinho status;
+	private CartStatus status;
 	private Map<String, Item> items;
 
-	public Long getTotalCarrinho(){
+	public Long getCartTotal(){
 		return items.entrySet().stream()
 			.mapToLong(i -> i.getValue().getTotalPrice())
 			.sum();
 	}
 
-	public void removerItem(String sku, Integer qtd){
+	public void removeItem(String sku, Integer qtd){
 		Item i = items.get(sku);
 		if(i == null)
 			return;
-		if (qtd >= i.getQuantidade())
+		if (qtd >= i.getQuantity())
 			items.remove(sku);
 		else
-			i.setQuantidade(i.getQuantidade() - qtd);
+			i.setQuantity(i.getQuantity() - qtd);
 	}
 
-	public void inserirItem(Item item){
+	public void insertItem(Item item){
 		Item i = items.get(item.getSku());
 
 		if(i == null)
 			items.put(item.getSku(), item);
 		else
-			i.setQuantidade(i.getQuantidade() + item.getQuantidade());
+			i.setQuantity(i.getQuantity() + item.getQuantity());
 	}
 
 	public UUID getUserid() {
@@ -42,10 +42,10 @@ public class Carrinho{
 		this.userid = userid;
 	}
 
-	public StatusCarrinho getStatus() {
+	public CartStatus getStatus() {
 		return status;
 	}
-	public void setStatus(StatusCarrinho status) {
+	public void setStatus(CartStatus status) {
 		this.status = status;
 	}
 	public Map<String, Item> getItems() {
