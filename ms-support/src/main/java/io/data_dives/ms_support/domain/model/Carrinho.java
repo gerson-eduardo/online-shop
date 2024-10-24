@@ -1,6 +1,5 @@
 package io.data_dives.ms_support.domain.model;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -49,12 +48,11 @@ public class Carrinho{
 	public void setStatus(StatusCarrinho status) {
 		this.status = status;
 	}
-
-	public HashMap<String, Item> getItems() {
+	public Map<String, Item> getItems() {
 		return items;
 	}
 
-	public void setItems(HashMap<String, Item> items) {
+	public void setItems(Map<String, Item> items) {
 		this.items = items;
 	}
 
