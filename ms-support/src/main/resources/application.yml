@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: ms-support
+  data:
+    mongodb:
+      database: online-store
+      username: USERNAME # Optional, if authentication is required
+      password: PASSWORD
+      url: mongodb://localhost:27017/online-store # Replace with your database URI
