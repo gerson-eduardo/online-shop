@@ -1,31 +1,31 @@
 package io.data_dives.online_store.domain.model;
 
 public class Item{
-	private Produto produto;
-	private Long quantidade;
+	private Product product;
+	private Long quantity;
 
 	public Item(){}
 
-	public Item(Produto produto, Long qtd){
-		this.produto = produto;
-		this.quantidade = qtd;
+	public Item(Product product, Long qtd){
+		this.product = product;
+		this.quantity = qtd;
 	}
 
-	public Produto getProduto() {
-		return produto;
+	public Product getProduct() {
+		return product;
 	}
-	public void setProduto(Produto produto) {
-		this.produto = produto;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
-	public Long getQuantidade() {
-		return quantidade;
+	public Long getQuantity() {
+		return quantity;
 	}
-	public void setQuantidade(Long quantidade) {
-		this.quantidade = quantidade;
+	public void setQuantity(Long quantity) {
+		this.quantity = quantity;
 	}
 
-	public Long CalcularTotalItem(){
-		return produto.getPreco() * quantidade;
+	public Long getItemTotal(){
+		return product.getPrice() * quantity;
 	}
 }
 
